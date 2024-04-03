@@ -4,10 +4,11 @@ import { PropsWithChildren } from "react";
 import { useSelector } from "react-redux";
 import { backgroundData } from "@/datas/backgroundData";
 import Background from "../background";
+import Header from "../header";
 
 const montserrat = Varela({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
 });
 export default function Template({ children }: PropsWithChildren) {
   return (
@@ -19,8 +20,9 @@ export default function Template({ children }: PropsWithChildren) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={montserrat.className}>
+        <Header />
         {children}
-        <Background backgroundStyle={backgroundData[0]} />
+        <Background background={backgroundData[0]} />
       </main>
     </>
   );
