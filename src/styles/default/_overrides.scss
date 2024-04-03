@@ -1,0 +1,7 @@
+@import "./mixins";
+
+@include sm {
+  .MuiSpeedDial-actions {
+    margin-right: -42px !important;
+  }
+}
