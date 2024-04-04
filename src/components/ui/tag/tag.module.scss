@@ -1,0 +1,14 @@
+.tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: rgba(132, 132, 132, 0.422);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(203, 203, 203, 0.3);
+}
