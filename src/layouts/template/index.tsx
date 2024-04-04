@@ -1,4 +1,4 @@
-import { Lora, Montserrat, Varela } from "next/font/google";
+import { Montserrat, Open_Sans, Roboto, Rokkitt } from "next/font/google";
 import Head from "next/head";
 import { PropsWithChildren } from "react";
 import { useSelector } from "react-redux";
@@ -6,9 +6,8 @@ import { backgroundData } from "@/datas/backgroundData";
 import Background from "../background";
 import Header from "../header";
 
-const montserrat = Varela({
+const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: "400",
 });
 export default function Template({ children }: PropsWithChildren) {
   return (
