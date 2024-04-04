@@ -1,0 +1,45 @@
+@import "../../styles/default/mixins";
+.header {
+  width: 100%;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.328);
+  height: 70px;
+  z-index: 999;
+  position: relative;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  &_inner {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &--left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    p {
+      font-size: 24px;
+      font-weight: 600;
+      color: white;
+      text-shadow:
+        -0.25px -0.25px 0 black,
+        0.25px -0.25px 0 black,
+        -0.25px 0.25px 0 black,
+        0.25px 0.25px 0 black;
+    }
+  }
+}
+
+@include sm {
+  .header {
+    padding: 0 20px;
+    &--right {
+      div {
+        right: -20px;
+      }
+    }
+  }
+}
