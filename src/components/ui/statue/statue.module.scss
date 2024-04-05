@@ -1,0 +1,13 @@
+.statue {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  &_dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+  }
+}
