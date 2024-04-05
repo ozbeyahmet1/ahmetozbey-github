@@ -1,0 +1,70 @@
+.dropdown {
+  font-family: "Montserrat", sans-serif;
+  &_input {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: transparent;
+    margin-bottom: 10px;
+    &::placeholder {
+      color: rgb(194, 194, 194);
+      font-family: "Montserrat", sans-serif !important;
+    }
+  }
+
+  &_button {
+    background-color: transparent;
+    color: rgb(225, 225, 225);
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    text-transform: capitalize;
+    cursor: pointer;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &_menuItem {
+    &--head {
+      p {
+        margin-top: 5px;
+      }
+      font-family: "Montserrat", sans-serif !important;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 10px;
+      font-size: 14px;
+      color: white;
+      font-weight: 600 !important;
+      background-color: black;
+      border: none;
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+  &_items {
+    max-height: 200px;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #252525;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+    }
+  }
+}
