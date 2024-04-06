@@ -29,7 +29,7 @@ export default function Card({ index, repositoryProps }: CardProps): JSX.Element
   const cardMotionProps: AnimationProps = {
     initial: { y: -100, opacity: 0 },
     animate: { y: 0, opacity: 1 },
-    transition: { duration: index * 0.3 + 0.1 },
+    transition: { duration: index * 0.3 + 0.1, delay: 0.2 },
   };
 
   /**

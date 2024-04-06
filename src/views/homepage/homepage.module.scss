@@ -3,11 +3,11 @@
   width: 100vw;
   z-index: 99;
   position: relative;
-  top: 0;
   height: 100%;
   &_container {
     max-width: 900px;
     margin: auto;
+    height: 100%;
   }
   &_header {
     font-size: 3.5rem;

@@ -1,6 +1,7 @@
 import { AnimationProps, motion } from "framer-motion";
 import { BsLightningFill } from "react-icons/bs";
 import Card from "@/components/card";
+import SearchBar from "@/components/searchBar";
 import { HomepageData } from "@/datas/homepage.ui";
 import styles from "./homepage.module.scss";
 export default function HomepageView() {
@@ -27,6 +28,7 @@ export default function HomepageView() {
           <Card repositoryProps={favoriteRepositories} index={selectedRepositories.length} />
         </div>
       </div>
+      <SearchBar />
     </div>
   );
 }

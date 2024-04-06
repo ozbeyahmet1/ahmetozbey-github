@@ -4,6 +4,7 @@ import { IoIosStarOutline } from "react-icons/io";
 import Table from "@/components/table/index";
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
+import Pagination from "@/components/ui/pagination";
 import { exampleIssues } from "@/datas/issues.sample";
 import styles from "./issuesView.module.scss";
 
@@ -28,6 +29,7 @@ export default function IssuePageView() {
           </Button>
         </div>
         <Table issues={exampleIssues} />
+        <Pagination currentPage={5} totalPages={45} />
       </div>
     </div>
   );

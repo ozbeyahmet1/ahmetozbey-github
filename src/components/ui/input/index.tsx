@@ -13,7 +13,9 @@ interface InputProps {
   error: boolean;
   disabled?: boolean;
   className?: string;
+  min?: number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+
 }
 
 export default function Input({
@@ -25,6 +27,7 @@ export default function Input({
   error,
   disabled,
   className,
+  min,
   onChange,
 }: InputProps) {
   return (
@@ -39,6 +42,7 @@ export default function Input({
         onChange={onChange}
         disabled={disabled}
         className={className}
+        min={min}
       />
       {error && <p className="error">Input filed cant be empty!</p>}
     </>
