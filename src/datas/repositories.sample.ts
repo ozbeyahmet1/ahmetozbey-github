@@ -1,4 +1,4 @@
-import { Repository } from "@/helpers/interfaces/repository";
+import { Repository } from "@/helpers/interfaces/api";
 
 export const repositories: Array<Repository> = [
   {

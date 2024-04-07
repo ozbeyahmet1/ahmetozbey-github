@@ -5,30 +5,30 @@ export interface Sort {
 export const sortKeys: Array<Sort> = [
   {
     id: 1,
-    name: 'Newest',
+    name: "Newest",
   },
   {
     id: 2,
-    name: 'Oldest',
+    name: "Oldest",
   },
   {
     id: 3,
-    name: 'Most commented',
+    name: "Most commented",
   },
   {
     id: 4,
-    name: 'Least commented',
+    name: "Least commented",
   },
   {
     id: 5,
-    name: 'Recently updated',
+    name: "Recently updated",
   },
   {
     id: 6,
-    name: 'Least recently updated',
+    name: "Least recently updated",
   },
   {
     id: 7,
-    name: 'Best Match',
-  }
+    name: "Best Match",
+  },
 ];

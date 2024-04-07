@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { User } from "@/helpers/interfaces/api";
 import { IssuePageProps } from "@/helpers/interfaces/pageProps";
-import { fetchAssigneesByPath, fetchIssuesByPath, fetchLabelsByPath } from "@/helpers/utils/fetchRepositoriesByIds";
+import { fetchAssigneesByPath, fetchIssuesByPath, fetchLabelsByPath } from "@/helpers/utils/apiFunctions";
 import Template from "@/layouts/template";
 import IssuePageView from "@/views/issues";
 
