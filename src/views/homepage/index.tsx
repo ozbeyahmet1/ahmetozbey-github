@@ -2,15 +2,14 @@ import { AnimationProps, motion } from "framer-motion";
 import { BsLightningFill } from "react-icons/bs";
 import Card from "@/components/card";
 import SearchBar from "@/components/searchBar";
-import { HomepageData } from "@/datas/homepage.ui";
+import { HomepageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./homepage.module.scss";
-export default function HomepageView() {
+export default function HomepageView({ data, ui: { description, favoriteRepositories, header, subHeader } }: HomepageProps) {
   const headerMotionProps: AnimationProps = {
     initial: { y: -100 },
     animate: { y: 0 },
     transition: { duration: 1 },
   };
-  const { selectedRepositories, description, header, subHeader, favoriteRepositories } = HomepageData;
   return (
     <div className={styles.homepage}>
       <div className={styles["homepage_container"] + " container"}>
@@ -22,10 +21,10 @@ export default function HomepageView() {
         </h3>
         <h5 className={styles["homepage_description"]}>{description}</h5>
         <div className={styles["grid-container"]}>
-          {selectedRepositories.map((repository, index) => (
+          {data.map((repository, index) => (
             <Card key={repository.id} repositoryProps={repository} index={index} />
           ))}
-          <Card repositoryProps={favoriteRepositories} index={selectedRepositories.length} />
+          <Card repositoryProps={favoriteRepositories} index={data.length} />
         </div>
       </div>
       <SearchBar />
