@@ -11,20 +11,19 @@
   margin-bottom: 40px;
   &_inner {
     width: 100%;
-    max-width: 1200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 }
 
-@include sm {
-  .header {
-    padding: 0 20px;
-    &--right {
-      div {
-        right: -20px;
-      }
-    }
-  }
-}
+// @include sm {
+//   .header {
+//     padding: 0 20px;
+//     &--right {
+//       div {
+//         right: -20px;
+//       }
+//     }
+//   }
+// }
