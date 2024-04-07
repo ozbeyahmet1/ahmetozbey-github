@@ -1,7 +1,8 @@
 import { Montserrat } from "next/font/google";
 import Head from "next/head";
 import { PropsWithChildren } from "react";
-import { backgroundData } from "@/datas/backgroundData";
+import { useSelector } from "react-redux";
+import { backgroundSetter } from "@/store";
 import Background from "../background";
 import Header from "../header";
 
@@ -9,6 +10,7 @@ const montserrat = Montserrat({
   subsets: ["latin"],
 });
 export default function Template({ children }: PropsWithChildren) {
+  const background = useSelector(backgroundSetter);
   return (
     <>
       <Head>
@@ -21,7 +23,7 @@ export default function Template({ children }: PropsWithChildren) {
       <main className={montserrat.className} style={{ height: "100%" }}>
         <Header />
         {children}
-        <Background background={backgroundData[1]} />
+        <Background background={background.value} />
       </main>
     </>
   );

@@ -3,14 +3,18 @@
 */
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { backgroundData } from "@/datas/backgroundData";
-import { BackgroundProperties } from "@/helpers/interfaces/common";
+import { backgroundSetter } from "@/store";
+import { setBackground } from "@/store/slices/backgroundSlice";
 import ColorBadge from "../ui/colorBadge";
 
 export default function BackgrounDial() {
-  const [selectedBackground, setBackground] = useState<BackgroundProperties>(backgroundData[0]);
-  const unselectedBackgrounds = backgroundData.filter((background) => background.id !== selectedBackground.id);
+  const background = useSelector(backgroundSetter);
+  const unselectedBackgrounds = backgroundData.filter(theme => theme.id !== background.value.id);
+  const dispatch = useDispatch();
+
   const fabStyle: CSSProperties = {
     backgroundColor: "white",
     borderRadius: "5px",
@@ -23,14 +27,15 @@ export default function BackgrounDial() {
     <SpeedDial
       ariaLabel="Color Badge Dial"
       direction="left"
-      icon={<ColorBadge style={backgroundData.find((theme) => theme.id == selectedBackground.id)?.style || {}} />}
-      FabProps={{ style: fabStyle }}>
+      icon={<ColorBadge style={backgroundData.find(theme => theme.id == background.value.id)?.style as CSSProperties} />}
+      FabProps={{ style: fabStyle }}
+    >
       {unselectedBackgrounds.map((action) => (
         <SpeedDialAction
           key={""}
-          icon={<ColorBadge style={backgroundData.find((theme) => theme.id == action.id)?.style || {}} />}
+          icon={<ColorBadge style={backgroundData.find(theme => theme.id == action.id)?.style as CSSProperties} />}
           tooltipTitle={action.name}
-          onClick={() => setBackground(action)}
+          onClick={() => dispatch(setBackground(action.id))}
         />
       ))}
     </SpeedDial>
