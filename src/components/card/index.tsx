@@ -5,7 +5,6 @@
 import { AnimationProps, motion } from "framer-motion";
 import Image from "next/image";
 import { Repository } from "@/helpers/interfaces/repository";
-import useWindowSize, { ScreenSize } from "@/hooks/useWindowSize";
 import styles from "./card.module.scss";
 
 /**
@@ -23,8 +22,8 @@ interface CardProps {
  * @returns {JSX.Element} The rendered Card component.
  */
 export default function Card({ index, repositoryProps }: CardProps): JSX.Element {
-  const screenSize = useWindowSize();
-  const isMobileScreen = screenSize === ScreenSize.Mobile;
+
+
 
   const cardMotionProps: AnimationProps = {
     initial: { y: -100, opacity: 0 },
@@ -62,7 +61,7 @@ export default function Card({ index, repositoryProps }: CardProps): JSX.Element
   return (
     <motion.div className={styles["card"]} {...cardMotionProps}>
       {Array.isArray(repositoryProps)
-        ? renderMultipleRepos(isMobileScreen ? repositoryProps : repositoryProps)
+        ? renderMultipleRepos(repositoryProps)
         : renderSingleRepo(repositoryProps)}
     </motion.div>
   );
