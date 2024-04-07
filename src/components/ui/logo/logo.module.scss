@@ -1,0 +1,17 @@
+.logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  text-transform: lowercase;
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-shadow:
+      -0.25px -0.25px 0 black,
+      0.25px -0.25px 0 black,
+      -0.25px 0.25px 0 black,
+      0.25px 0.25px 0 black;
+  }
+}

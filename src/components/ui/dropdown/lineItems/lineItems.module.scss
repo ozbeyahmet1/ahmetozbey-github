@@ -1,0 +1,17 @@
+.lineItemAuthor {
+  color: white;
+  display: flex;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif !important;
+  transition: all 0.3s;
+  padding: 10px;
+  color: white;
+  background-color: black;
+  img {
+    border-radius: 100%;
+  }
+  p {
+    font-size: 12px;
+    font-weight: 600;
+  }
+}

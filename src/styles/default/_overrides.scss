@@ -1,0 +1,18 @@
+@import "./mixins";
+
+@include sm {
+  .MuiSpeedDial-actions {
+    margin-right: -62px !important;
+    padding-right: 68px !important;
+  }
+}
+
+.MuiMenuItem-root {
+  transition: all 0.2s;
+  &:hover {
+    background-color: rgb(45, 45, 45);
+  }
+}
+.MuiButton-endIcon {
+  margin: 0 !important;
+}
