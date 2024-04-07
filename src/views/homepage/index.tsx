@@ -4,7 +4,10 @@ import Card from "@/components/card";
 import SearchBar from "@/components/searchBar";
 import { HomepageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./homepage.module.scss";
-export default function HomepageView({ data, ui: { description, favoriteRepositories, header, subHeader } }: HomepageProps) {
+export default function HomepageView({
+  data,
+  ui: { description, favoriteRepositories, header, subHeader },
+}: HomepageProps) {
   const headerMotionProps: AnimationProps = {
     initial: { y: -100 },
     animate: { y: 0 },
