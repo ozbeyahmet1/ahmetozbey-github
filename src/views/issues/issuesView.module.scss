@@ -63,3 +63,10 @@
     }
   }
 }
+
+@include lg {
+  .issuePageView {
+    max-width: 992px;
+    margin: auto;
+  }
+}

@@ -5,10 +5,11 @@ import Table from "@/components/table/index";
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
 import Pagination from "@/components/ui/pagination";
-import { exampleIssues } from "@/datas/issues.sample";
+import { IssuePageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./issuesView.module.scss";
 
-export default function IssuePageView() {
+export default function IssuePageView({ data }: IssuePageProps) {
+  console.log("data.labelDatas", data.labelDatas);
   const [search, setSearch] = useState<string>("");
   return (
     <div className={styles["issuePageView"]}>
@@ -28,7 +29,7 @@ export default function IssuePageView() {
             <IoIosStarOutline size={22} />
           </Button>
         </div>
-        <Table issues={exampleIssues} />
+        <Table data={data} />
         <Pagination currentPage={5} totalPages={45} />
       </div>
     </div>
