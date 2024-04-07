@@ -2,30 +2,21 @@ import { MenuItem } from "@mui/material";
 import Image from "next/image";
 import * as React from "react";
 import { Sort } from "@/datas/sortKeys";
-import { dataType } from "@/helpers/interfaces/user";
+import { Label, User } from "@/helpers/interfaces/api";
 import styles from "./lineItems.module.scss";
 
-interface AuthorProps {
-  imageSrc: string;
-  username: string;
-}
-
-interface LabelProps {
-  color: string;
-  name: string;
-}
 export interface LineItemProps {
-  type: dataType;
-  authorProps?: AuthorProps;
-  labelProps?: LabelProps;
+  type: "author" | "label" | "assignee" | "sort";
+  authorProps?: User;
+  labelProps?: Label;
   sortProps?: Sort;
 }
 
 export default function LineItem({ type, authorProps, labelProps, sortProps }: LineItemProps) {
-  const authorMenuItem = ({ imageSrc, username }: AuthorProps): JSX.Element | null => (
+  const authorMenuItem = ({ avatar_url, login }: User): JSX.Element | null => (
     <MenuItem disableRipple className={styles["lineItemAuthor"]}>
-      <Image src={imageSrc} alt="" width={20} height={20} />
-      <p>{username}</p>
+      <Image src={avatar_url} alt="" width={20} height={20} />
+      <p>{login}</p>
     </MenuItem>
   );
 
@@ -35,12 +26,12 @@ export default function LineItem({ type, authorProps, labelProps, sortProps }: L
     </MenuItem>
   );
 
-  const labelMenuItem = ({ color, name }: LabelProps) => {
+  const labelMenuItem = ({ color, name }: Label) => {
     const tagStyle: React.CSSProperties = {
       backgroundColor: `#${color}`,
       width: 10,
       height: 10,
-      borderRadius: "100%"
+      borderRadius: "100%",
     };
 
     return (
@@ -57,5 +48,6 @@ export default function LineItem({ type, authorProps, labelProps, sortProps }: L
       {type === "label" && labelProps && labelMenuItem(labelProps)}
       {type === "assignee" && authorProps && authorMenuItem(authorProps)}
       {type === "sort" && sortProps && sortMenuItem(sortProps)}
-    </div>);
+    </div>
+  );
 }
