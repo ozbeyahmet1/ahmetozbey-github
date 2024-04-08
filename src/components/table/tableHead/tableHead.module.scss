@@ -3,6 +3,7 @@
 .tableHead {
   width: 100%;
   color: white;
+  z-index: 9999;
   &--top {
     display: flex;
     align-items: center;
@@ -20,6 +21,7 @@
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    z-index: 9999;
   }
   &--left {
     display: flex;

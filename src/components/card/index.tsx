@@ -4,7 +4,8 @@
 
 import { AnimationProps, motion } from "framer-motion";
 import Image from "next/image";
-import { Repository } from "@/helpers/interfaces/repository";
+import Link from "next/link";
+import { Repository } from "@/helpers/interfaces/api";
 import styles from "./card.module.scss";
 
 /**
@@ -22,9 +23,6 @@ interface CardProps {
  * @returns {JSX.Element} The rendered Card component.
  */
 export default function Card({ index, repositoryProps }: CardProps): JSX.Element {
-
-
-
   const cardMotionProps: AnimationProps = {
     initial: { y: -100, opacity: 0 },
     animate: { y: 0, opacity: 1 },
@@ -36,14 +34,16 @@ export default function Card({ index, repositoryProps }: CardProps): JSX.Element
    * @param {Repository} repository - The repository to be rendered.
    * @returns {JSX.Element | null} The rendered repository information or null if the repository is undefined.
    */
-  const renderSingleRepo = (repository: Repository): JSX.Element | null =>
-    repository ? (
-      <>
+  const renderSingleRepo = (repository: Repository): JSX.Element | null => {
+    const issueUrl = "/repos/" + repository.full_name + "/issues";
+    return repository ? (
+      <Link href={issueUrl} className={styles["card_single"]}>
         <Image className={styles["card_image"]} src={repository.owner.avatar_url} width={80} height={80} alt="" />
         <p className={styles["card_title"]}>{repository.full_name}</p>
         <p className={styles["card_description"]}>{repository.description}</p>
-      </>
+      </Link>
     ) : null;
+  };
 
   /**
    * Renders the repository information for multiple repositories.
@@ -60,9 +60,7 @@ export default function Card({ index, repositoryProps }: CardProps): JSX.Element
 
   return (
     <motion.div className={styles["card"]} {...cardMotionProps}>
-      {Array.isArray(repositoryProps)
-        ? renderMultipleRepos(repositoryProps)
-        : renderSingleRepo(repositoryProps)}
+      {Array.isArray(repositoryProps) ? renderMultipleRepos(repositoryProps) : renderSingleRepo(repositoryProps)}
     </motion.div>
   );
 }

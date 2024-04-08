@@ -2,7 +2,6 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { BackgroundProperties } from "@/helpers/interfaces/common";
 import { backgroundData } from "../../datas/backgroundData";
 
-
 /**
  * Represents the state of the background slice.
  */

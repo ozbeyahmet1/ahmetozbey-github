@@ -4,14 +4,31 @@
   gap: 10px;
   font-family: "Montserrat", sans-serif !important;
   transition: all 0.3s;
-  padding: 10px;
-  color: white;
-  background-color: black;
+  padding: 10px !important;
+  color: white !important;
+  background-color: black !important;
   img {
     border-radius: 100%;
   }
   p {
-    font-size: 12px;
+    font-size: 12px !important;
+    font-weight: 600;
+  }
+}
+.lineItemAuthor--selected {
+  color: white;
+  display: flex;
+  gap: 10px;
+  font-family: "Montserrat", sans-serif !important;
+  transition: all 0.3s;
+  padding: 10px !important;
+  color: white !important;
+  background-color: rgb(127, 127, 127) !important;
+  img {
+    border-radius: 100%;
+  }
+  p {
+    font-size: 12px !important;
     font-weight: 600;
   }
 }

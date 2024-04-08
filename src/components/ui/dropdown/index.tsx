@@ -5,12 +5,13 @@ import { styled } from "@mui/material/styles";
 import * as React from "react";
 import { IoIosClose } from "react-icons/io";
 import { RxTriangleDown } from "react-icons/rx";
-import { Sort } from "@/datas/sortKeys";
-import { Label } from "@/helpers/interfaces/label";
-import { User, dataType } from "@/helpers/interfaces/user";
+import { Sort, sortKeys } from "@/datas/sortKeys";
+import { Assignee, Label, User } from "@/helpers/interfaces/api";
+import { dataType } from "@/helpers/interfaces/common";
 import styles from "./dropdown.module.scss";
 import LineItem from "./lineItems";
 import Input from "../input";
+
 const StyledMenu = styled((props: MenuProps) => (
   <Menu
     elevation={0}
@@ -36,11 +37,13 @@ const StyledMenu = styled((props: MenuProps) => (
 export interface DropdownProps {
   hasInput: boolean;
   buttonText: string;
-  data: Array<User | Label | Sort>;
+  users?: Array<User>;
+  assignees?: Array<Assignee>;
+  labels?: Array<Label>;
   type: dataType;
+  sortKeys?: Array<Sort>;
 }
-export default function Dropdown({ hasInput, buttonText, data, type }: DropdownProps) {
-
+export default function Dropdown({ hasInput, buttonText, type, assignees, labels, users }: DropdownProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -75,27 +78,26 @@ export default function Dropdown({ hasInput, buttonText, data, type }: DropdownP
             <Input
               type="text"
               placeholder={`Search for ${type}s`}
-              error={false}
               name="search"
-              onChange={() => { }}
+              onChange={() => {}}
               value={""}
               className={styles["dropdown_input"]}
             />
           </MenuItem>
         )}
         <div className={styles["dropdown_items"]}>
-          {(data as Array<User>).map((user, i) => {
-            return <LineItem type={type} key={i} authorProps={{ imageSrc: user.avatar_url, username: user.login }} />;
-          })}
-          {(data as Array<Label>).map((label, i) => {
-            return <LineItem type={type} key={i} labelProps={{ color: label.color, name: label.name }} />;
-          })}
-          {type == "assignee" && (data as Array<User>).map((user, i) => {
-            return <LineItem type={type} key={i} authorProps={{ imageSrc: user.avatar_url, username: user.login }} />;
-          })}
-          {type == "sort" && (data as Array<Sort>).map((item, i) => {
-            return <LineItem type={type} key={i} sortProps={{ id: i, name: item.name }} />;
-          })}
+          {type == "label" &&
+            labels?.map((label, i) => {
+              return <LineItem type="label" key={i} labelProps={label} />;
+            })}
+          {type == "assignee" &&
+            assignees?.map((assignee, i) => {
+              return <LineItem type="assignee" key={i} assigneeProps={assignee} />;
+            })}
+          {type == "sort" &&
+            sortKeys.map((item, i) => {
+              return <LineItem type="sort" key={i} sortProps={{ id: i, name: item.name, key: item.key }} />;
+            })}
         </div>
       </StyledMenu>
     </div>

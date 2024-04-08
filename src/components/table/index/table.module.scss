@@ -3,6 +3,7 @@
   position: relative;
   height: 200px;
   overflow-x: hidden;
+  z-index: 9999;
   &_rows {
     border: 1px solid rgb(212, 212, 212);
     border-bottom: none;

@@ -1,11 +1,13 @@
 import Dropdown from "@/components/ui/dropdown";
 import StatueBadge, { Statue } from "@/components/ui/statue";
-import { labels } from "@/datas/labels.sample";
-import { sortKeys } from "@/datas/sortKeys";
-import { users } from "@/datas/user.sample";
+import { Sort } from "@/datas/sortKeys";
+import { IssuePageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./tableHead.module.scss";
 
-export default function TableHead() {
+export interface TableHeadProps {
+  sortKeys: Sort[];
+}
+export default function TableHead({ data: { assigneesDatas, labelDatas }, sortKeys }: TableHeadProps & IssuePageProps) {
   return (
     <div className={styles["tableHead"]}>
       <div className={styles["tableHead--top"] + " container"}>
@@ -30,10 +32,11 @@ export default function TableHead() {
           </div>
         </div>
         <div className={styles["tableHead--right"]}>
-          <Dropdown buttonText="author" data={users} hasInput={true} type="author" />
-          <Dropdown buttonText="label" data={labels} hasInput={true} type="label" />
-          <Dropdown buttonText="assignee" data={users} hasInput={true} type="assignee" />
-          <Dropdown buttonText="sort" data={sortKeys} hasInput={false} type="sort" />
+          {labelDatas && <Dropdown buttonText="label" labels={labelDatas} hasInput={true} type="label" />}
+          {assigneesDatas && (
+            <Dropdown buttonText="assignee" assignees={assigneesDatas} hasInput={true} type="assignee" />
+          )}
+          <Dropdown buttonText="sort" sortKeys={sortKeys} hasInput={false} type="sort" />
         </div>
       </div>
     </div>

@@ -5,3 +5,5 @@ export type PropsWithIdAndName<P = unknown> = P & { readonly id: number; readonl
 export interface BackgroundProperties extends PropsWithIdAndName {
   style: CSSProperties;
 }
+
+export type dataType = "author" | "label" | "assignee" | "sort";

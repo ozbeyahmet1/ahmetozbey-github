@@ -1,18 +1,16 @@
-import { Issue } from "@/helpers/interfaces/issue";
+import { sortKeys } from "@/datas/sortKeys";
+import { IssuePageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./table.module.scss";
 import TableHead from "../tableHead";
 import TableRow from "../tableRow";
-export interface IAppProps {
-  issues: Array<Issue>;
-}
 
-export default function TableWrapper({ issues }: IAppProps) {
+export default function TableWrapper({ data: { assigneesDatas, issueDatas, labelDatas } }: IssuePageProps) {
   return (
     <div>
-      <TableHead />
+      <TableHead data={{ assigneesDatas, issueDatas, labelDatas }} sortKeys={sortKeys} />
       <div className={styles["table_rows"]}>
-        {issues.map((issue, index) => {
-          return <TableRow key={index} title={issue.title} />;
+        {issueDatas?.map((issue, index) => {
+          return <TableRow key={index} {...issue} />;
         })}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Label } from "@/helpers/interfaces/label";
+import { Label } from "@/helpers/interfaces/api";
 
 export const labels: Array<Label> = [
   {

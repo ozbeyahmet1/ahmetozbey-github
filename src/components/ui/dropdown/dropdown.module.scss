@@ -14,11 +14,11 @@
   }
 
   &_button {
-    background-color: transparent;
+    background-color: transparent !important;
     color: rgb(225, 225, 225);
-    font-family: "Montserrat", sans-serif;
-    padding: 0;
-    text-transform: capitalize;
+    font-family: "Montserrat", sans-serif !important;
+    padding: 0 !important;
+    text-transform: capitalize !important;
     cursor: pointer;
 
     &:hover {
@@ -29,20 +29,20 @@
   &_menuItem {
     &--head {
       p {
-        margin-top: 5px;
+        margin-top: 5px !important;
       }
       font-family: "Montserrat", sans-serif !important;
       width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 5px 10px;
+      display: flex !important;
+      justify-content: space-between !important;
+      padding: 5px 10px !important;
       font-size: 14px;
-      color: white;
+      color: white !important;
       font-weight: 600 !important;
-      background-color: black;
+      background-color: black !important;
       border: none;
       &:hover {
-        background-color: black;
+        background-color: black !important;
       }
     }
   }

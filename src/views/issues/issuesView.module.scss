@@ -54,12 +54,19 @@
   }
 }
 
-@include sm {
+// @include sm {
+//   .issuePageView {
+//     &_searchButton {
+//       p {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+@include lg {
   .issuePageView {
-    &_searchButton {
-      p {
-        display: none;
-      }
-    }
+    max-width: 992px;
+    margin: auto;
   }
 }

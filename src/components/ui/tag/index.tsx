@@ -1,3 +1,4 @@
+import Link from "next/link";
 import * as React from "react";
 import styles from "./tag.module.scss";
 export interface TagProps {
@@ -6,10 +7,11 @@ export interface TagProps {
 }
 
 export default function Tag({ icon, text }: TagProps) {
+  const issueUrl = "/repos/" + text + "/issues";
   return (
-    <div className={styles["tag"]}>
+    <Link href={issueUrl} className={styles["tag"]}>
       <p>{text}</p>
       {icon}
-    </div>
+    </Link>
   );
 }
