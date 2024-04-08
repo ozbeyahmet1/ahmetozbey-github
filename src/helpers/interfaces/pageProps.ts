@@ -17,7 +17,6 @@ export interface IssuePageProps {
   data: {
     issueDatas: Array<Issue> | null;
     labelDatas: Array<Label> | null;
-    authorDatas: Array<User> | null;
     assigneesDatas: Array<Assignee> | null;
   };
 }

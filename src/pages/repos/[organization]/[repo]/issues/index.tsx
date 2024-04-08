@@ -44,8 +44,6 @@ export const getServerSideProps: GetServerSideProps<IssuePageProps> = async ({ r
       return map;
     }, new Map<number, User>());
 
-    const authorDatas = Array.from(authorMap.values());
-
     const labelDatas = await fetchLabelsByPath(repoName);
     const assigneesDatas = await fetchAssigneesByPath(repoName);
 
@@ -53,7 +51,6 @@ export const getServerSideProps: GetServerSideProps<IssuePageProps> = async ({ r
       data: {
         issueDatas,
         labelDatas,
-        authorDatas,
         assigneesDatas,
       },
     };

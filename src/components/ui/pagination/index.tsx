@@ -14,8 +14,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
       <Input
         type="number"
         value={currentPageNumber}
-        onChange={(e) => setCurrentPageNumber(parseInt(e.target.value))}
-        error={false}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCurrentPageNumber(parseInt(e.target.value))}
         name="page"
         placeholder={currentPage.toString()}
         className={styles["pagination_input"]}

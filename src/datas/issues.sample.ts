@@ -1,4 +1,4 @@
-import { Issue } from "@/helpers/interfaces/issue";
+import { Issue } from "@/helpers/interfaces/api";
 
 export const exampleIssues: Array<Issue> = [
   {
