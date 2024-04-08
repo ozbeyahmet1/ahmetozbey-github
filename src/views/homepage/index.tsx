@@ -6,7 +6,7 @@ import { HomepageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./homepage.module.scss";
 export default function HomepageView({
   data,
-  ui: { description, favoriteRepositories, header, subHeader },
+  ui: { description, header, subHeader, popularSearchs },
 }: HomepageProps) {
   const headerMotionProps: AnimationProps = {
     initial: { y: -100 },
@@ -27,10 +27,9 @@ export default function HomepageView({
           {data.map((repository, index) => (
             <Card key={repository.id} repositoryProps={repository} index={index} />
           ))}
-          <Card repositoryProps={favoriteRepositories} index={data.length} />
         </div>
       </div>
-      <SearchBar />
+      <SearchBar repositories={popularSearchs} />
     </div>
   );
 }

@@ -6,12 +6,12 @@ import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { CSSProperties } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { backgroundData } from "@/datas/backgroundData";
-import { backgroundSetter } from "@/store";
+import { backgroundSelector } from "@/store";
 import { setBackground } from "@/store/slices/backgroundSlice";
 import ColorBadge from "../ui/colorBadge";
 
 export default function BackgrounDial() {
-  const background = useSelector(backgroundSetter);
+  const background = useSelector(backgroundSelector);
   const unselectedBackgrounds = backgroundData.filter(theme => theme.id !== background.value.id);
   const dispatch = useDispatch();
 

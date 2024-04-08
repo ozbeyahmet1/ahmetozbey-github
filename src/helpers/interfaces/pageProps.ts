@@ -1,5 +1,3 @@
-import { ParsedUrlQuery } from "querystring";
-import { GetServerSidePropsContext, PreviewData } from "next";
 import { Assignee, Issue, Label, Repository, User } from "./api";
 
 export interface HomepageProps {
@@ -11,8 +9,7 @@ export interface HomepageUI {
   header: string;
   subHeader: string;
   description: string;
-  selectedRepositories: Array<string>;
-  favoriteRepositories: Array<Repository>;
+  popularSearchs: Array<string>;
 }
 
 export interface IssuePageProps {

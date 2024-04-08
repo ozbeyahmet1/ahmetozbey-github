@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { MdOutlineHistory } from "react-icons/md";
+import { IoMdStarOutline } from "react-icons/io";
 import styles from "./searchBar.module.scss";
 import Input from "../ui/input";
 import Tag from "../ui/tag";
-
-export default function SearchBar() {
+interface SearchBarProps {
+  repositories: Array<string>;
+}
+export default function SearchBar({ repositories }: SearchBarProps) {
   const [search, setSearch] = useState<string>("");
   return (
     <div className={styles["searchBar"]}>
@@ -27,11 +29,14 @@ export default function SearchBar() {
       </div>
       <div className={styles["searchBar--bottom"]}>
         <div className={styles["searchBar_recentSearches"]}>
-          <MdOutlineHistory color="white" size={20} />
-          <p>Recent Searches</p>
+          <IoMdStarOutline color="white" size={20} />
+          <p>Popular Searchs</p>
         </div>
         <div className={styles["searchBar_tags"]}>
-          <Tag icon={<CiSearch size={20} color="white" />} text="React" />
+          {repositories.map((repository) => {
+            return <Tag key={repository} icon={<CiSearch size={20} color="white" />} text={repository} />;
+          })}
+
         </div>
       </div>
     </div>

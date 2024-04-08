@@ -1,6 +1,8 @@
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { IoIosStarOutline } from "react-icons/io";
 
+import { useDispatch, useSelector } from "react-redux";
 import Table from "@/components/table/index";
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
@@ -9,7 +11,7 @@ import { IssuePageProps } from "@/helpers/interfaces/pageProps";
 import styles from "./issuesView.module.scss";
 
 export default function IssuePageView({ data }: IssuePageProps) {
-  console.log("data.labelDatas", data.labelDatas);
+
   const [search, setSearch] = useState<string>("");
   return (
     <div className={styles["issuePageView"]}>
@@ -24,9 +26,8 @@ export default function IssuePageView({ data }: IssuePageProps) {
             name="search"
             placeholder="Search by Repository, Project and Contributors"
           />
-          <Button className={styles["issuePageView_searchButton"]}>
-            <p>Add to Favorites</p>
-            <IoIosStarOutline size={22} />
+          <Button className={styles["issuePageView_searchButton"]} >
+            <p>Search</p>
           </Button>
         </div>
         <Table data={data} />

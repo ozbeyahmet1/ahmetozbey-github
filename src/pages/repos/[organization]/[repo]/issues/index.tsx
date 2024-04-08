@@ -28,7 +28,6 @@ export const getServerSideProps: GetServerSideProps<IssuePageProps> = async ({ r
   try {
     const repoPath = resolvedUrl.split("/repos/")[1];
     const repoName = repoPath.split("/issues")[0];
-    console.log("repoName", repoName);
 
     const issueDatas = await fetchIssuesByPath(resolvedUrl);
 
@@ -63,7 +62,6 @@ export const getServerSideProps: GetServerSideProps<IssuePageProps> = async ({ r
       props: issuePageData,
     };
   } catch (error) {
-    console.error("Error fetching data:", error);
     return {
       notFound: true,
     };

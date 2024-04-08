@@ -1,6 +1,9 @@
 @import "../../styles/default/mixins";
 .searchBar {
   position: fixed;
+  right: 0;
+  left: 0;
+  transform: translate(0);
   bottom: 0;
   width: 100%;
   height: auto;
