@@ -17,26 +17,26 @@ export const sortKeys: Array<Sort> = [
   {
     id: 3,
     name: "Most commented",
-    key: "sort=created&direction=asc",
+    key: "sort=comments&direction=desc",
   },
   {
     id: 4,
     name: "Least commented",
-    key: "sort=created&direction=asc",
+    key: "sort=comments&direction=asc",
   },
   {
     id: 5,
     name: "Recently updated",
-    key: "sort=created&direction=asc",
+    key: "sort=updated&direction=desc",
   },
   {
     id: 6,
     name: "Least recently updated",
-    key: "sort=created&direction=asc",
+    key: "sort=updated&direction=asc",
   },
   {
     id: 7,
     name: "Best Match",
-    key: "sort=created&direction=asc",
+    key: "sort=best_match&direction=desc",
   },
 ];

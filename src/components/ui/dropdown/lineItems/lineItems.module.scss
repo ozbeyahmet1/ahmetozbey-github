@@ -7,12 +7,14 @@
   padding: 10px !important;
   color: white !important;
   background-color: black !important;
+  text-decoration: none !important;
   img {
     border-radius: 100%;
   }
   p {
     font-size: 12px !important;
     font-weight: 600;
+    text-decoration: none !important;
   }
 }
 .lineItemAuthor--selected {
@@ -24,11 +26,13 @@
   padding: 10px !important;
   color: white !important;
   background-color: rgb(127, 127, 127) !important;
+  text-decoration: none !important;
   img {
     border-radius: 100%;
   }
   p {
     font-size: 12px !important;
     font-weight: 600;
+    text-decoration: none !important;
   }
 }
