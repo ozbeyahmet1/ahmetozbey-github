@@ -1,5 +1,5 @@
 import * as React from "react";
-import RepoCard from "@/components/card/repoCard";
+import RepoCard from "@/components/repoCard";
 import { Repository } from "@/helpers/interfaces/api";
 import styles from "./searchResultsPage.module.scss";
 

@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE, persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // or another storage method
 import backgroundReducer from "./slices/backgroundSlice";
-import favoritesReducer from "./slices/favoritesSlice";
 
 const persistConfig = {
   key: "root",

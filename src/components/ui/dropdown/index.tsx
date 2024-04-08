@@ -43,12 +43,25 @@ export interface DropdownProps {
   type: dataType;
   sortKeys?: Array<Sort>;
 }
-export default function Dropdown({ hasInput, buttonText, type, assignees, labels, users }: DropdownProps) {
+
+/**
+ * A dropdown component that allows filtering and selection of options.
+ */
+export default function Dropdown({ hasInput, buttonText, type, assignees, labels }: DropdownProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  /**
+   * Handles the click event on the dropdown button.
+   * @param event - The click event.
+   */
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  /**
+   * Handles the close event of the dropdown.
+   */
   const handleClose = () => {
     setAnchorEl(null);
   };

@@ -3,7 +3,7 @@
  * It provides various props to customize the input field, such as type, label, value, name, placeholder, error, disabled, className, and onChange event handler.
  */
 
-import { ChangeEvent, HTMLProps } from "react";
+import { HTMLProps } from "react";
 
 export default function Input({
   type,

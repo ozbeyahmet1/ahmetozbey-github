@@ -1,5 +1,8 @@
 import styles from "./statue.module.scss";
 
+/**
+ * Enum representing the possible states of a statue.
+ */
 export enum Statue {
   Default,
   Open,
@@ -7,10 +10,24 @@ export enum Statue {
   ClosedAsNotPlanned,
 }
 
+/**
+ * Props for the StatueBadge component.
+ */
 interface StatueProps {
   statue: Statue;
 }
+
+/**
+ * Renders a badge representing the given statue state.
+ * @param statue - The statue state to render.
+ * @returns The JSX element representing the statue badge.
+ */
 export default function StatueBadge({ statue }: StatueProps) {
+  /**
+   * Returns the JSX element representing the given statue state.
+   * @param params - The statue state.
+   * @returns The JSX element representing the statue.
+   */
   function name(params: Statue) {
     switch (params) {
       case Statue.Default:
@@ -45,5 +62,6 @@ export default function StatueBadge({ statue }: StatueProps) {
         );
     }
   }
+
   return <div>{name(statue)}</div>;
 }

@@ -1,5 +1,5 @@
 import { Assignee, Issue, Label, Repository } from "../interfaces/api";
-import { SearchPageProps, SearchPageResult } from "../interfaces/pageProps";
+import { SearchPageResult } from "../interfaces/pageProps";
 
 /**
  * Fetches repositories by their names.

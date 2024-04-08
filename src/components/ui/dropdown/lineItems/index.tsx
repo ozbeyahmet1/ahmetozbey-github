@@ -6,6 +6,10 @@ import * as React from "react";
 import { Sort } from "@/datas/sortKeys";
 import { Assignee, Label, User } from "@/helpers/interfaces/api";
 import styles from "./lineItems.module.scss";
+
+/**
+ * Props for the LineItem component.
+ */
 export interface LineItemProps {
   type: "label" | "assignee" | "sort";
   labelProps?: Label;
@@ -13,6 +17,14 @@ export interface LineItemProps {
   assigneeProps?: Assignee;
 }
 
+/**
+ * A dropdown line item component.
+ * @param type - The type of the line item.
+ * @param labelProps - The label properties.
+ * @param sortProps - The sort properties.
+ * @param assigneeProps - The assignee properties.
+ * @returns The LineItem component.
+ */
 export default function LineItem({ type, labelProps, sortProps, assigneeProps }: LineItemProps) {
   const { asPath } = useRouter();
   const router = useRouter();
@@ -20,6 +32,13 @@ export default function LineItem({ type, labelProps, sortProps, assigneeProps }:
   const { labels } = router.query;
   const { sort } = router.query;
   const { direction } = router.query;
+
+  /**
+   * Renders the author menu item.
+   * @param avatar_url - The URL of the author's avatar.
+   * @param login - The login name of the author.
+   * @returns The author menu item.
+   */
   const authorMenuItem = ({ avatar_url, login }: User): JSX.Element | null => {
     let url = "";
     if (labels || sort) {
@@ -38,6 +57,13 @@ export default function LineItem({ type, labelProps, sortProps, assigneeProps }:
       </Link>
     );
   };
+
+  /**
+   * Renders the sort menu item.
+   * @param name - The name of the sort option.
+   * @param key - The key of the sort option.
+   * @returns The sort menu item.
+   */
   const sortMenuItem = ({ name, key }: Sort): JSX.Element | null => {
     let url = "";
     if (creator || labels) {
@@ -65,6 +91,12 @@ export default function LineItem({ type, labelProps, sortProps, assigneeProps }:
     );
   };
 
+  /**
+   * Renders the label menu item.
+   * @param color - The color of the label.
+   * @param name - The name of the label.
+   * @returns The label menu item.
+   */
   const labelMenuItem = ({ color, name }: Label) => {
     const tagStyle: React.CSSProperties = {
       backgroundColor: `#${color}`,

@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import Link from "next/link";
 import { SearchPageProps, SearchPageResult } from "@/helpers/interfaces/pageProps";
 import { fetchSearchPageResultsByQuery } from "@/helpers/utils/apiFunctions";
 import Template from "@/layouts/template";
