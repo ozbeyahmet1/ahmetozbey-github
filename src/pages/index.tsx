@@ -18,6 +18,6 @@ export const getServerSideProps: GetServerSideProps<HomepageProps> = async () =>
   const ui = HomepageUIData;
   const homepageData: HomepageProps = { data, ui };
   return {
-    props: homepageData
+    props: homepageData,
   };
 };

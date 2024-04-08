@@ -30,4 +30,3 @@ export type AppDispatch = typeof store.dispatch;
 
 // Selector functions should match the keys used in combineReducers
 export const backgroundSelector = (state: RootState) => state.background;
-
