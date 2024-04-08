@@ -12,28 +12,29 @@ import ColorBadge from "../ui/colorBadge";
 
 export default function BackgrounDial() {
   const background = useSelector(backgroundSelector);
-  const unselectedBackgrounds = backgroundData.filter(theme => theme.id !== background.value.id);
+  const unselectedBackgrounds = backgroundData.filter((theme) => theme.id !== background.value.id);
   const dispatch = useDispatch();
 
   const fabStyle: CSSProperties = {
     backgroundColor: "white",
-    borderRadius: "5px",
+    borderRadius: "100%",
     padding: "3px",
-    width: "40px",
-    height: "40px",
+    width: "36px",
+    height: "36px",
     position: "relative",
   };
   return (
     <SpeedDial
       ariaLabel="Color Badge Dial"
       direction="left"
-      icon={<ColorBadge style={backgroundData.find(theme => theme.id == background.value.id)?.style as CSSProperties} />}
-      FabProps={{ style: fabStyle }}
-    >
+      icon={
+        <ColorBadge style={backgroundData.find((theme) => theme.id == background.value.id)?.style as CSSProperties} />
+      }
+      FabProps={{ style: fabStyle }}>
       {unselectedBackgrounds.map((action) => (
         <SpeedDialAction
           key={""}
-          icon={<ColorBadge style={backgroundData.find(theme => theme.id == action.id)?.style as CSSProperties} />}
+          icon={<ColorBadge style={backgroundData.find((theme) => theme.id == action.id)?.style as CSSProperties} />}
           tooltipTitle={action.name}
           onClick={() => dispatch(setBackground(action.id))}
         />
