@@ -9,6 +9,7 @@ export interface HomepageUI {
   header: string;
   subHeader: string;
   description: string;
+  selectedRepositories: Array<string>;
   popularSearchs: Array<string>;
 }
 
@@ -19,4 +20,14 @@ export interface IssuePageProps {
     authorDatas: Array<User> | null;
     assigneesDatas: Array<Assignee> | null;
   };
+}
+
+export interface SearchPageProps {
+  searchPageResult: SearchPageResult;
+}
+
+export interface SearchPageResult {
+  incomplete_results: boolean;
+  items: Array<Repository>;
+  total_count: number;
 }
