@@ -1,5 +1,5 @@
-
 import { Assignee, Issue, Label, Repository } from "../interfaces/api";
+import { SearchPageProps, SearchPageResult } from "../interfaces/pageProps";
 
 /**
  * Fetches repositories by their names.
@@ -53,7 +53,7 @@ export async function fetchIssuesByPath(path: string): Promise<Array<Issue> | nu
  */
 export async function fetchLabelsByPath(path: string): Promise<Label[]> {
   try {
-    const response = await fetch(`https://api.github.com/repos/${path}/labels`, {
+    const response = await fetch(`https://api.github.com/repos/${path}/labels?per_page=100`, {
       headers: {
         Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
         "Content-Type": "application/json",
@@ -83,5 +83,25 @@ export async function fetchAssigneesByPath(path: string): Promise<Assignee[]> {
   } catch (error) {
     console.error(`Failed to fetch assignees with path ${path}:`, error);
     return [];
+  }
+}
+
+/**
+ * Fetches issues by query.
+ * @param query - The query string.
+ * @returns A promise that resolves to an array of issues or null if the fetch fails.
+ */
+export async function fetchSearchPageResultsByQuery(query: string): Promise<SearchPageResult | null> {
+  try {
+    const response = await fetch(`https://api.github.com/search/repositories?q=${encodeURIComponent(query)}`, {
+      headers: {
+        Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    });
+    return response.json() as Promise<SearchPageResult>;
+  } catch (error) {
+    console.error(`Failed to fetch issues with query ${query}:`, error);
+    return null;
   }
 }
