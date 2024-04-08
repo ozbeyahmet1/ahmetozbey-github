@@ -7,10 +7,7 @@ import styles from "./tableHead.module.scss";
 export interface TableHeadProps {
   sortKeys: Sort[];
 }
-export default function TableHead({
-  data: { assigneesDatas, authorDatas, labelDatas },
-  sortKeys,
-}: TableHeadProps & IssuePageProps) {
+export default function TableHead({ data: { assigneesDatas, labelDatas }, sortKeys }: TableHeadProps & IssuePageProps) {
   return (
     <div className={styles["tableHead"]}>
       <div className={styles["tableHead--top"] + " container"}>
@@ -35,7 +32,6 @@ export default function TableHead({
           </div>
         </div>
         <div className={styles["tableHead--right"]}>
-          {authorDatas && <Dropdown buttonText="author" users={authorDatas} hasInput={true} type="author" />}
           {labelDatas && <Dropdown buttonText="label" labels={labelDatas} hasInput={true} type="label" />}
           {assigneesDatas && (
             <Dropdown buttonText="assignee" assignees={assigneesDatas} hasInput={true} type="assignee" />
