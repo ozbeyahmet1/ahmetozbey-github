@@ -16,7 +16,7 @@ export interface ReferenceProps {
      Component content goes here
   }
 */
-export default function Reference(props: ReferenceProps) {
+export default function Reference() {
   return (
     /*
       Adhere to BEM (Block Element Modifier) naming conventions for classnames.

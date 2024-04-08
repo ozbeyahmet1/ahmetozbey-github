@@ -1,4 +1,4 @@
-import { Assignee, Issue, Label, Repository, User } from "./api";
+import { Assignee, Issue, Label, Repository } from "./api";
 
 export interface HomepageProps {
   data: Array<Repository>;

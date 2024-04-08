@@ -1,5 +1,4 @@
 import { Montserrat } from "next/font/google";
-import Head from "next/head";
 import { PropsWithChildren } from "react";
 import { useSelector } from "react-redux";
 import { backgroundSelector } from "@/store";

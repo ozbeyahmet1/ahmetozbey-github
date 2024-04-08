@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import { User } from "@/helpers/interfaces/api";
 import { IssuePageProps } from "@/helpers/interfaces/pageProps";
 import { fetchAssigneesByPath, fetchIssuesByPath, fetchLabelsByPath } from "@/helpers/utils/apiFunctions";
 import Template from "@/layouts/template";
@@ -35,14 +34,6 @@ export const getServerSideProps: GetServerSideProps<IssuePageProps> = async ({ r
       throw new Error("Invalid issue data");
     }
 
-    const users: User[] = issueDatas.map((item) => item.user);
-
-    const authorMap = users.reduce((map, item) => {
-      if (item && item.id) {
-        map.set(item.id, item);
-      }
-      return map;
-    }, new Map<number, User>());
 
     const labelDatas = await fetchLabelsByPath(repoName);
     const assigneesDatas = await fetchAssigneesByPath(repoName);

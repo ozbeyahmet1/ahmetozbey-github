@@ -12,7 +12,7 @@ import styles from "./label.module.scss";
  * @param {string} name - The name of the label.
  * @returns {JSX.Element} The rendered label component.
  */
-export default function Label({ color, description, name }: LabelInterface) {
+export default function Label({ color, name }: LabelInterface) {
   const pathName = usePathname();
   const labelStyle = {
     color: `#${color}`,

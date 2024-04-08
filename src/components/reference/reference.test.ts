@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "@testing-library/react";
 
 // Import the component to be tested and its props

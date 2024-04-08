@@ -47,7 +47,7 @@ export interface DropdownProps {
 /**
  * A dropdown component that allows filtering and selection of options.
  */
-export default function Dropdown({ hasInput, buttonText, type, assignees, labels, users }: DropdownProps) {
+export default function Dropdown({ hasInput, buttonText, type, assignees, labels }: DropdownProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
