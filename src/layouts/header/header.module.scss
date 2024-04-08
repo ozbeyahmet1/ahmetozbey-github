@@ -1,13 +1,13 @@
 @import "../../styles/default/mixins";
 .header {
-  width: 100%;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.328);
   height: 70px;
-  z-index: 999;
+  z-index: 99;
   position: relative;
   margin: auto;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 40px;
   &_inner {
     width: 100%;
@@ -17,13 +17,14 @@
   }
 }
 
-// @include sm {
-//   .header {
-//     padding: 0 20px;
-//     &--right {
-//       div {
-//         right: -20px;
-//       }
-//     }
-//   }
-// }
+@include sm {
+  .header {
+    padding: 0;
+    &_inner {
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

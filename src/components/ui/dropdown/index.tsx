@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import Menu, { MenuProps } from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { styled } from "@mui/material/styles";
+import { useRouter } from "next/router";
 import * as React from "react";
 import { IoIosClose } from "react-icons/io";
 import { RxTriangleDown } from "react-icons/rx";
@@ -44,6 +45,24 @@ export interface DropdownProps {
   sortKeys?: Array<Sort>;
 }
 export default function Dropdown({ hasInput, buttonText, type, assignees, labels, users }: DropdownProps) {
+  const router = useRouter();
+  // interface FilteredUrl {
+  //   author?: string;
+  //   label?: Array<string>;
+  //   assignee?: string;
+  //   sort?: string;
+  // }
+
+  // const { creator, label, assignee, sort } = router.query;
+  // const filtedUrlString = {
+  //   author: creator,
+  //   label: label,
+  //   assignee: assignee,
+  //   sort: sort
+  // };
+
+  // console.log(filtedUrlString);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -78,7 +97,6 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
             <Input
               type="text"
               placeholder={`Search for ${type}s`}
-              error={false}
               name="search"
               onChange={() => {}}
               value={""}
@@ -87,21 +105,17 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
           </MenuItem>
         )}
         <div className={styles["dropdown_items"]}>
-          {type == "author" &&
-            users?.map((user, i) => {
-              return <LineItem type="author" key={i} authorProps={user} />;
-            })}
           {type == "label" &&
             labels?.map((label, i) => {
               return <LineItem type="label" key={i} labelProps={label} />;
             })}
           {type == "assignee" &&
             assignees?.map((assignee, i) => {
-              return <LineItem type="assignee" key={i} authorProps={assignee} />;
+              return <LineItem type="assignee" key={i} assigneeProps={assignee} />;
             })}
           {type == "sort" &&
             sortKeys.map((item, i) => {
-              return <LineItem type="sort" key={i} sortProps={{ id: i, name: item.name }} />;
+              return <LineItem type="sort" key={i} sortProps={{ id: i, name: item.name, key: item.key }} />;
             })}
         </div>
       </StyledMenu>

@@ -1,11 +1,12 @@
 @import "./mixins";
 
-@include sm {
-  .MuiSpeedDial-actions {
-    margin-right: -62px !important;
-    padding-right: 68px !important;
-  }
-}
+// @include sm {
+//   .MuiSpeedDial-actions {
+//     margin-right: -72px !important;
+//     padding-right: 78px !important;
+//     right: 0;
+//   }
+// }
 
 .MuiMenuItem-root {
   transition: all 0.2s;

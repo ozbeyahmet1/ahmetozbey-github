@@ -3,20 +3,7 @@
  * It provides various props to customize the input field, such as type, label, value, name, placeholder, error, disabled, className, and onChange event handler.
  */
 
-import { ChangeEvent } from "react";
-interface InputProps {
-  type: "text" | "number" | "email" | "password";
-  label?: string;
-  value: string | number;
-  name: string;
-  placeholder: string;
-  error: boolean;
-  disabled?: boolean;
-  className?: string;
-  min?: number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-
-}
+import { ChangeEvent, HTMLProps } from "react";
 
 export default function Input({
   type,
@@ -24,12 +11,12 @@ export default function Input({
   value,
   name,
   placeholder,
-  error,
   disabled,
   className,
   min,
   onChange,
-}: InputProps) {
+  onSubmit,
+}: HTMLProps<HTMLInputElement>) {
   return (
     <>
       {label && <label htmlFor={label}>{label}</label>}
@@ -43,8 +30,8 @@ export default function Input({
         disabled={disabled}
         className={className}
         min={min}
+        onSubmit={onSubmit}
       />
-      {error && <p className="error">Input filed cant be empty!</p>}
     </>
   );
 }
