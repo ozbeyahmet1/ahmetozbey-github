@@ -77,8 +77,7 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
         variant="contained"
         disableElevation
         onClick={handleClick}
-        endIcon={<RxTriangleDown />}
-      >
+        endIcon={<RxTriangleDown />}>
         {buttonText}
       </Button>
 
@@ -93,7 +92,7 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
               type="text"
               placeholder={`Search for ${type}s`}
               name="search"
-              onChange={() => { }}
+              onChange={() => {}}
               value={""}
               className={styles["dropdown_input"]}
             />

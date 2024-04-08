@@ -51,6 +51,7 @@
     align-items: center;
     color: white;
     gap: 5px;
+
     p {
       white-space: nowrap;
     }
@@ -58,6 +59,18 @@
   &_tags {
     display: flex;
     gap: 10px;
+    a {
+      p {
+        white-space: nowrap;
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      display: none;
+    }
   }
   &_input {
     width: 100%;
