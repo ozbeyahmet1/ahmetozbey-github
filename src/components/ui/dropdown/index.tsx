@@ -43,12 +43,25 @@ export interface DropdownProps {
   type: dataType;
   sortKeys?: Array<Sort>;
 }
+
+/**
+ * A dropdown component that allows filtering and selection of options.
+ */
 export default function Dropdown({ hasInput, buttonText, type, assignees, labels, users }: DropdownProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
+  /**
+   * Handles the click event on the dropdown button.
+   * @param event - The click event.
+   */
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
+
+  /**
+   * Handles the close event of the dropdown.
+   */
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -64,7 +77,8 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
         variant="contained"
         disableElevation
         onClick={handleClick}
-        endIcon={<RxTriangleDown />}>
+        endIcon={<RxTriangleDown />}
+      >
         {buttonText}
       </Button>
 
@@ -79,7 +93,7 @@ export default function Dropdown({ hasInput, buttonText, type, assignees, labels
               type="text"
               placeholder={`Search for ${type}s`}
               name="search"
-              onChange={() => {}}
+              onChange={() => { }}
               value={""}
               className={styles["dropdown_input"]}
             />

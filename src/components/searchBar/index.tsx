@@ -5,22 +5,28 @@ import { IoMdStarOutline } from "react-icons/io";
 import styles from "./searchBar.module.scss";
 import Input from "../ui/input";
 import Tag from "../ui/tag";
+
+/**
+ * SearchBar component for searching repositories, projects, and contributors.
+ * @param repositories - An array of repositories.
+ */
 interface SearchBarProps {
   repositories: Array<string>;
 }
+
 export default function SearchBar({ repositories }: SearchBarProps) {
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-
-    // Navigate to the search results page with the search query
+    e.preventDefault();
     router.push(`/search/issues?q=${search}`);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+
   const [search, setSearch] = useState<string>("");
   const router = useRouter();
+
   return (
     <div className={styles["searchBar"]}>
       <div className={styles["searchBar--top"]}>
